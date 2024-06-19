@@ -1,0 +1,23 @@
+{
+    "login": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    },
+    "products": [
+      {
+        "product_name": "Sauce Labs Backpack",
+        "expected_price": "29.99",
+        "expected_description": "A red backpack perfect for carrying all your Sauce Labs swag."
+      },
+      {
+        "product_name": "Sauce Labs Bike Light",
+        "expected_price": "9.99",
+        "expected_description": "A red light that can be attached to your bike. Provides great visibility in low light conditions."
+      }
+    ],
+    "user": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "postal_code": "12345"
+    }
+  }
