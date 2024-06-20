@@ -7,12 +7,12 @@
       {
         "product_name": "Sauce Labs Backpack",
         "expected_price": "29.99",
-        "expected_description": "A red backpack perfect for carrying all your Sauce Labs swag."
+        "expected_description": "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection."
       },
       {
         "product_name": "Sauce Labs Bike Light",
         "expected_price": "9.99",
-        "expected_description": "A red light that can be attached to your bike. Provides great visibility in low light conditions."
+        "expected_description": "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included."
       }
     ],
     "user": {
