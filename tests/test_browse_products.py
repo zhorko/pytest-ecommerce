@@ -5,7 +5,7 @@ from pages.login_page import LoginPage
 from pages.list_products_page import HomePage
 
 
-def test_products(_browser):
+def test_browse_products(_browser):
 
     URL = "https://www.saucedemo.com/"
     wait = WebDriverWait(_browser, 10)

@@ -4,7 +4,7 @@ import json
 from pages.login_page import LoginPage
 from pages.product_page import ProductPage
 
-def test_products(_browser):
+def test_product_details(_browser):
 
     URL = "https://www.saucedemo.com/"
     wait = WebDriverWait(_browser, 10)

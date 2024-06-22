@@ -8,11 +8,10 @@ from pages.cart_page import CartPage
 import json
 
 
-def test_products(_browser):
+def test_cart(_browser):
 
     URL = "https://www.saucedemo.com/"
     wait = WebDriverWait(_browser, 10)
-    all_correct = False
 
     # Open json file
     with open('./data/test_data.json', 'r') as JF:
@@ -61,12 +60,12 @@ def test_products(_browser):
     assert cart_page.get_product_quantity(wait, 1) == 1
 
     # Validate product names from database
-    assert cart_page.get_product_name(wait, 0) == json_data["products"][0]["product_name"]
-    assert cart_page.get_product_name(wait, 1) == json_data["products"][1]["product_name"]
+    assert cart_page.get_product_data(wait, 0)[0] == json_data["products"][0]["product_name"]
+    assert cart_page.get_product_data(wait, 1)[0] == json_data["products"][1]["product_name"]
 
     # Validate product prices from database
-    assert cart_page.get_product_price(wait, 0) == json_data["products"][0]["expected_price"]
-    assert cart_page.get_product_price(wait, 1) == json_data["products"][1]["expected_price"]
+    assert cart_page.get_product_data(wait, 0)[1] == json_data["products"][0]["expected_price"]
+    assert cart_page.get_product_data(wait, 1)[1] == json_data["products"][1]["expected_price"]
 
     # Remove one product
     cart_page.remove_product(wait, 0)

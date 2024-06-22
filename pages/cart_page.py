@@ -17,7 +17,7 @@ class CartPage:
 
         return len(cart_elements) - 2
 
-    def get_product_name(self, wait, prod_num: int):
+    def get_product_data(self, wait, prod_num: int):
         prod_num += 3
         
         try:
@@ -27,11 +27,6 @@ class CartPage:
         except exceptions.TimeoutException as e:
             print('{0} >> {1}'.format('prod_name', e))
 
-        return prod_name
-    
-    def get_product_price(self, wait, prod_num: int):
-        prod_num += 3
-        
         try:
             prod_price = wait.until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, ".cart_list div:nth-of-type("+ str(prod_num) +") .inventory_item_price"))
@@ -41,20 +36,8 @@ class CartPage:
 
         prod_price = prod_price.replace('$', '')
 
-        return prod_price
-    
-    def remove_product(self, wait, prod_num):
-        prod_num += 3
+        return [prod_name, prod_price]
         
-        try:
-            wait.until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, ".cart_list div:nth-of-type("+ str(prod_num) +") .cart_button"))
-            ).click()
-        except exceptions.TimeoutException as e:
-            print('{0} >> {1}'.format('prod_remover', e))
-
-        self.driver.refresh()
-
     def get_product_quantity(self, wait, prod_num: int):
         prod_num += 3
 
@@ -66,3 +49,23 @@ class CartPage:
             print('{0} >> {1}'.format('product_quant', e))
 
         return int(product_quant)
+
+    def buy_product(self, wait):
+        try:
+            wait.until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, ".checkout_button"))
+            ).click()
+        except exceptions.TimeoutException as e:
+            print('{0} >> {1}'.format('buy_prod', e))
+
+    def remove_product(self, wait, prod_num):
+        prod_num += 3
+        
+        try:
+            wait.until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, ".cart_list div:nth-of-type("+ str(prod_num) +") .cart_button"))
+            ).click()
+        except exceptions.TimeoutException as e:
+            print('{0} >> {1}'.format('prod_remover', e))
+
+        self.driver.refresh()
